@@ -19,7 +19,8 @@ public class Main {
             System.out.println("1. Aggiungi una macchina.");
             System.out.println("2. Visualizza macchine.");
             System.out.println("3. Rimuovi macchina.");
-            System.out.println("4. Esci la lista.");
+            System.out.println("4. Ricerca macchina.");
+            System.out.println("5. Esci dalla lista.");
             Scanner sc = new Scanner(System.in);
             int Choice = sc.nextInt();
             switch (Choice) {
@@ -32,8 +33,21 @@ public class Main {
                 case 3:
                     remove();
                     break;
-                case 4:System.exit(0);
+                case 4:
+                    ricerca();
                     break;
+                case 5:System.exit(0);
+                    break;
+            }
+        }
+    }
+    private static void ricerca() {
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Inserisci la targa della macchina da ricercare: ");
+        String tmptarga = sc.nextLine();
+        for (int i=0;i<auto.size();i++){
+            if (tmptarga.equals(auto.get(i).getTarga())) {
+                System.out.println(auto.get(i).getTarga()+" "+auto.get(i).getNome()+" "+auto.get(i).getAzienda());
             }
         }
     }
